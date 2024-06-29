@@ -7,7 +7,7 @@ const MenuCategoriesDropdown = () => {
         <div className="menu--product-categories">
             <div className="menu__toggle">
                 <i className="icon-menu" />
-                <span id="sticky_id">Shop by Department</span>
+                <span id="sticky_id">Shop by Category</span>
             </div>
             <div className="menu__content">
                 <DefaultMenu

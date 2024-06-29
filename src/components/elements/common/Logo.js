@@ -36,12 +36,12 @@ const Logo = ({ type }) => {
     } else {
         data = {
             url: '/',
-            img: 'https://momskart-live-images1.s3.ap-south-1.amazonaws.com/website-assests/Momskart-Text-logo.png',
+            img: 'https://i.ibb.co/rx5sMky/Group-96.png',
         };
     }
     return (
         <Link href={data.url} className="ps-logo">
-            <img src={data.img} alt="" />
+            <img src={data.img} alt="Momskart" />
         </Link>
     );
 };

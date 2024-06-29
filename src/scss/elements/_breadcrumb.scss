@@ -1,6 +1,10 @@
 .ps-breadcrumb {
-    padding: 20px 0;
-    background-color: #f1f1f1;
+    padding: 40px 0;
+
+    .container {
+        max-width: 1620px;
+        padding: 0;
+    }
 
     .breadcrumb {
         display: inline-block;
@@ -10,9 +14,10 @@
 
         li {
             display: inline-block;
-            font-size: 14px;
+            font-size: 16px;
             line-height: 20px;
             color: $color-text;
+            font-family: $font-4th;
 
             &:before {
                 content: '/';
@@ -30,8 +35,11 @@
         }
 
         a {
+            font-family: $font-4th;
+            font-weight: 400;
+            font-size: 16px;
             line-height: 20px;
-            color: #09c;
+            color: #575656;
 
             &:hover {
                 color: $color-1st;
