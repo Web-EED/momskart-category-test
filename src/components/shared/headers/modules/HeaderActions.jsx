@@ -22,6 +22,9 @@ const HeaderActions = () => {
                 </span>
             </Link> */}
             <Link href="/account/wishlist" className="header__extra">
+                <img src="/static/img/become-a-seller.png" />
+            </Link>
+            <Link href="/account/wishlist" className="header__extra">
                 <i className="icon-heart" />
                 <span>
                     <i>{wishlistItems ? wishlistItems.length : 0}</i>
