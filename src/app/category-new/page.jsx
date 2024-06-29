@@ -48,6 +48,13 @@ export default function ProductScreen() {
             title={categoryDetails ? categoryDetails.title : 'Category'}
             boxed={true}>
             <div className="ps-page--shop">
+                <div className="banner-container">
+                    <h2>Buy Namkeen Online</h2>
+                    <img
+                        src="https://i.ibb.co/1bWT7wG/Pickles-webp-2-1.png"
+                        alt="Momskart Namkeen Banner"
+                    />
+                </div>
                 <BreadCrumb breacrumb={breadCrumb} />
                 <div className="container">
                     <div className="ps-layout--shop ps-shop--category">

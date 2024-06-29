@@ -36,7 +36,7 @@ const Logo = ({ type }) => {
     } else {
         data = {
             url: '/',
-            img: 'https://i.ibb.co/rx5sMky/Group-96.png',
+            img: 'https://i.ibb.co/Bfdj4ZG/momskart-logo.png',
         };
     }
     return (

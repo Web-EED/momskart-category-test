@@ -98,7 +98,7 @@ const SearchHeader = () => {
                     className="form-control"
                     type="text"
                     value={keyword}
-                    placeholder="I'm shopping for..."
+                    placeholder=""
                     onChange={(e) => setKeyword(e.target.value)}
                 />
                 {keyword !== '' && (
@@ -114,7 +114,9 @@ const SearchHeader = () => {
                     </span>
                 )}
             </div>
-            <button onClick={handleSubmit}>Search</button>
+            <button onClick={handleSubmit}>
+                <img src="/static/img/search-button.svg" />
+            </button>
             {quickSearchBox}
         </form>
     );

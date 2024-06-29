@@ -246,6 +246,7 @@
         i {
             font-size: 30px;
             line-height: 1em;
+            color: $color-mk-blue;
         }
     }
 
@@ -254,11 +255,13 @@
 
         a {
             display: block;
+            font-family: $font-4th;
             font-weight: 700;
             line-height: 18px;
+            color: $color-mk-blue;
 
             &:hover {
-                color: #ffffff;
+                color: $color-mk-pink;
             }
         }
     }

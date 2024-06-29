@@ -237,6 +237,25 @@
 }
 
 .ps-page--shop {
+    .banner-container {
+        max-width: 1620px;
+        margin: auto;
+        padding: 15px 0;
+
+        h2 {
+            margin: 0;
+            padding: 15px 0;
+            font-family: $font-4th;
+            font-weight: 600;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        img {
+            padding: 15px 0;
+        }
+    }
+
     .ps-shop-banner {
         padding: 30px 0 45px;
     }
