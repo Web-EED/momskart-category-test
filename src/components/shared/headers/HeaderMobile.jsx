@@ -37,8 +37,8 @@ class HeaderMobile extends Component {
                     <div className="navigation__left">
                         <Link href="/" className="ps-logo">
                             <img
-                                src="https://momskart-live-images1.s3.ap-south-1.amazonaws.com/website-assests/Momskart-Text-logo.png"
-                                alt="martfury"
+                                src="i.ibb.co/rx5sMky/Group-96.png"
+                                alt="Momskart"
                             />
                         </Link>
                     </div>
