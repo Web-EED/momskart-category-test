@@ -10,7 +10,9 @@ const FooterWidgets = () => (
     //             <h3>1800 97 97 69</h3>
     <div className="ps-footer__widgets">
         {/* Momskart Footer Logo and Text */}
-        <aside className="widget widget_footer widget_contact-us col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+        <aside
+            className="widget widget_footer widget_contact-us col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12"
+            style={{ padding: '0 0' }}>
             {/* <h4 className="widget-title">Re</h4> */}
 
             <div className="widget_content mkt-footer">
@@ -152,7 +154,9 @@ const FooterWidgets = () => (
             </div>
         </aside>
         {/* Get In Touch */}
-        <aside className="widget widget_footer col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 mk-flex-end">
+        <aside
+            className="widget widget_footer col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12 mk-flex-end"
+            style={{ padding: '0 0' }}>
             <div className="mkt-footer get-in-touch">
                 <h4 className="widget-title">Get In Touch</h4>
                 <div class="mkt-form-container">

@@ -12,9 +12,9 @@ const HeaderMobileProduct = () => {
         const header = document.getElementById('header-mobile');
         if (header !== null) {
             if (number >= 300) {
-                header.classList.add('header--sticky');
+                // header.classList.add('header--sticky');
             } else {
-                header.classList.remove('header--sticky');
+                // header.classList.remove('header--sticky');
             }
         }
     };

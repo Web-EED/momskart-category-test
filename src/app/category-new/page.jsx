@@ -10,6 +10,7 @@ import PageContainer from '~/components/layouts/PageContainer';
 import FooterDefault from '~/components/shared/footers/FooterDefault';
 import Newletters from '~/components/partials/commons/Newletters';
 import useProducCategory from '~/hooks/useProducCategory';
+import ShopItems from '~/components/partials/shop/ShopItems';
 
 export default function ProductScreen() {
     const { slug } = useParams();
@@ -48,14 +49,14 @@ export default function ProductScreen() {
             title={categoryDetails ? categoryDetails.title : 'Category'}
             boxed={true}>
             <div className="ps-page--shop">
-                <div className="banner-container">
-                    <h2>Buy Namkeen Online</h2>
-                    <img
-                        src="https://i.ibb.co/Xs2z0jj/Pickles-webp-2.webp"
-                        alt="Momskart Namkeen Banner"
-                    />
-                </div>
                 <div className="container">
+                    <div className="banner-container">
+                        <h2>Buy Namkeen Online</h2>
+                        <img
+                            src="https://i.ibb.co/Xs2z0jj/Pickles-webp-2.webp"
+                            alt="Momskart Namkeen Banner"
+                        />
+                    </div>
                     <div className="ps-layout--shop ps-shop--category">
                         <div className="ps-layout__left">
                             <WidgetShopCategories />
@@ -64,6 +65,7 @@ export default function ProductScreen() {
                         </div>
                         <div className="ps-layout__right">
                             <BreadCrumb breacrumb={breadCrumb} />
+                            <ShopItems />
                             <h3 className="ps-shop__heading">
                                 {category && category.name}
                             </h3>
@@ -72,7 +74,6 @@ export default function ProductScreen() {
                     </div>
                 </div>
             </div>
-            <Newletters layout="container" />
         </PageContainer>
     );
 }

@@ -5,13 +5,13 @@ export const stickyHeader = () => {
         document.body.scrollTop ||
         0;
     const header = document.getElementById('headerSticky');
-    const shop_dropdown =  document.getElementById('sticky_id');
+    const shop_dropdown = document.getElementById('sticky_id');
     if (header !== null) {
         if (number >= 300) {
-            header.classList.add('header--sticky');
-            shop_dropdown.style.color = "red";
+            // header.classList.add('header--sticky');
+            shop_dropdown.style.color = 'red';
         } else {
-            header.classList.remove('header--sticky');
+            // header.classList.remove('header--sticky');
         }
     }
 };
