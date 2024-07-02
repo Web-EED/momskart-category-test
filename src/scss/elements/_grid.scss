@@ -63,8 +63,13 @@ body {
     }
 }
 
-@media (min-width: 1200px) {
-    .container {
-        min-width: 1230px;
+.container {
+    max-width: 1620px;
+    @media (max-width: 1680px) {
+        padding: 0 10px;
+    }
+
+    @media (min-width: 1680px) {
+        padding: 0;
     }
 }

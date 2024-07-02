@@ -1,14 +1,64 @@
 .ps-footer {
     padding-top: 70px;
 
+    container {
+        max-width: 1620px;
+    }
+
     &__widgets {
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-between;
         padding-bottom: 35px;
+
+        .get-in-touch-form {
+            display: flex;
+            width: 100%;
+            font-family: $font-4th;
+            font-weight: 400;
+            -webkit-text-stroke: 1px $color-mk-footer-text;
+        }
+
+        .get-in-touch-form input[type='email'] {
+            flex: 0 0 65%;
+            padding: 20px;
+            font-size: 14px;
+            background: $color-mk-input-bg;
+            border: 1px solid #ccc;
+            border-right: none;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+
+        .get-in-touch-form button {
+            flex: 0 0 35%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid $color-mk-blue;
+            background-color: $color-mk-blue;
+            color: white;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            cursor: pointer;
+            -webkit-text-stroke: 0.1px $color-white;
+        }
+
+        .get-in-touch-form button:hover {
+            background-color: $color-mk-pink;
+            border: 1px solid $color-mk-pink;
+        }
+
+        .mkt-form-container {
+            p {
+                font-size: 12px;
+                font-weight: 400;
+                -webkit-text-stroke: 0.5px $color-mk-footer-text;
+            }
+        }
     }
 
     &__links {
+        display: none;
         padding: 60px 0;
         border-top: 1px solid #e1e1e1;
 
@@ -64,13 +114,18 @@
         padding: 35px 0;
         display: flex;
         flex-flow: row nowrap;
-        justify-content: space-between;
+        justify-content: center;
         border-top: 1px solid #e1e1e1;
 
         p {
             margin-bottom: 0;
-            line-height: 30px;
-            color: $color-heading;
+            font-family: $font-4th;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 19.5px;
+            color: $color-text-secondary;
+            text-stroke: 0.5px $color-text-secondary;
+            -webkit-text-stroke: 0.5px $color-text-secondary;
 
             &:last-child {
                 span {

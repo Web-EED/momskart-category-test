@@ -51,11 +51,10 @@ export default function ProductScreen() {
                 <div className="banner-container">
                     <h2>Buy Namkeen Online</h2>
                     <img
-                        src="https://i.ibb.co/1bWT7wG/Pickles-webp-2-1.png"
+                        src="https://i.ibb.co/Xs2z0jj/Pickles-webp-2.webp"
                         alt="Momskart Namkeen Banner"
                     />
                 </div>
-                <BreadCrumb breacrumb={breadCrumb} />
                 <div className="container">
                     <div className="ps-layout--shop ps-shop--category">
                         <div className="ps-layout__left">
@@ -64,6 +63,7 @@ export default function ProductScreen() {
                             <WidgetShopFilterByPriceRange />
                         </div>
                         <div className="ps-layout__right">
+                            <BreadCrumb breacrumb={breadCrumb} />
                             <h3 className="ps-shop__heading">
                                 {category && category.name}
                             </h3>

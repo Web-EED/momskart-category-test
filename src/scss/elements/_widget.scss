@@ -334,11 +334,36 @@
     @extend %list-reset;
 
     .widget-title {
+        font-family: $font-4th;
         font-size: 16px;
         margin-bottom: 30px;
-        color: $color-heading;
-        font-weight: 600;
+        color: $color-mk-blue;
+        font-weight: 700;
+        -webkit-text-stroke: 0.25px $color-mk-blue;
     }
+    .mkt-footer {
+        a,
+        p {
+            font-family: $font-4th;
+            font-weight: 700;
+            font-size: 14px;
+            color: $color-mk-footer-text;
+            margin-bottom: 5px;
+        }
+    }
+
+    .contact {
+        max-width: 245px;
+    }
+
+    .get-in-touch {
+        max-width: 330px;
+    }
+}
+
+.mk-flex-end {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .widget_contact-us {
