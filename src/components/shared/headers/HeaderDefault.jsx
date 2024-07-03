@@ -15,7 +15,7 @@ const HeaderDefault = () => {
 
     return (
         <header
-            className="header header--1"
+            className="header header--1 mkt-header"
             data-sticky="true"
             id="headerSticky">
             <div className="header__top">
