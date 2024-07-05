@@ -61,9 +61,15 @@ const DealOfDayProduct = ({ product }) => {
 
     // logic for 2 liner titles
     const truncateTitle = (title) => {
-        const words = title.split(' ');
-        if (words.length > 10) {
-            return `${words.slice(0, 10).join(' ')}...`;
+        if (React.isValidElement(title)) {
+            title = title.props.children;
+        }
+
+        if (typeof title === 'string') {
+            const words = title.split(' ');
+            if (words.length > 10) {
+                return `${words.slice(0, 10).join(' ')}...`;
+            }
         }
         return title;
     };
@@ -83,11 +89,8 @@ const DealOfDayProduct = ({ product }) => {
                 </IconButton>
             </div>
             <div className="product-details">
-                <div className="product-title">{title}</div>
-                {/* {truncateTitle(title)} */}
-                <Box mt={2} mb={2}>
-                    <Divider sx={{ bgcolor: 'rgba(0, 0, 0, 0.5)' }} />
-                </Box>
+                <div className="product-title">{truncateTitle(title)}</div>
+                <hr style={{ margin: '10px' }} />
                 <div style={{ display: 'flex' }}>
                     <div
                         style={{
@@ -113,10 +116,16 @@ const DealOfDayProduct = ({ product }) => {
                             {extendedPrice}
                         </div>
                     </div>
-                    <div style={{ width: '20%' }}>
+                    <div
+                        style={{
+                            width: '20%',
+                            display: 'flex',
+                            justifyContent: 'flex-end',
+                            alignItems: 'flex-end',
+                        }}>
                         <div className="trusted-sign">
                             <img
-                                src="/static/img/icons/trusted.jpg"
+                                src="https://i.ibb.co/rkmn2d1/mkt-trusted-img.png"
                                 alt="trusted icon"
                             />
                         </div>

@@ -365,12 +365,12 @@
 
     .ps-layout__left {
         width: 100%;
-        min-width: 340px;
-        max-width: 340px;
+        min-width: 22.22%;
+        max-width: 22.22%;
     }
 
     .ps-layout__right {
-        max-width: calc(100% - 360px);
+        max-width: calc(100% - 22.22%);
     }
 
     @include media('<lg') {
@@ -2211,6 +2211,9 @@
 }
 
 .ps-shop-items {
+    .row {
+        gap: 50px 0;
+    }
     @media screen and (max-width: 480px) {
         .row {
             margin: 0 -5px !important;
@@ -2236,7 +2239,7 @@
 }
 
 .ps-shop--category {
-    padding-top: 30px;
+    gap: 20px;
 
     .ps-shop__heading {
         font-weight: 600;
@@ -2245,7 +2248,6 @@
     }
 
     @media screen and (min-width: 1200px) {
-        padding-top: 60px;
     }
 }
 

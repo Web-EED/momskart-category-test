@@ -138,7 +138,9 @@ const ShopItems = ({ columns = 4, pageSize = 12 }) => {
     return (
         <Suspense>
             <div className="ps-shopping">
-                <div className="ps-shopping__header">
+                <div
+                    className="ps-shopping__header"
+                    style={{ display: 'none' }}>
                     <p>
                         <strong className="mr-2">{total}</strong>
                         Products found
