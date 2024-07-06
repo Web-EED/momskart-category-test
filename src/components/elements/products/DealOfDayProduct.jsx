@@ -66,9 +66,8 @@ const DealOfDayProduct = ({ product }) => {
         }
 
         if (typeof title === 'string') {
-            const words = title.split(' ');
-            if (words.length > 10) {
-                return `${words.slice(0, 10).join(' ')}...`;
+            if (title.length > 60) {
+                return `${title.slice(0, 60)}...`;
             }
         }
         return title;

@@ -11,6 +11,7 @@ import FooterDefault from '~/components/shared/footers/FooterDefault';
 import Newletters from '~/components/partials/commons/Newletters';
 import useProducCategory from '~/hooks/useProducCategory';
 import ShopItems from '~/components/partials/shop/ShopItems';
+import FAQAccordion from '~/components/shared/section/FAQSection';
 
 export default function ProductScreen() {
     const { slug } = useParams();
@@ -28,6 +29,37 @@ export default function ProductScreen() {
         },
         {
             text: category ? category.name : 'Namkeen',
+        },
+    ];
+
+    const faqs = [
+        {
+            question: 'Authentic Crunch with Delightful Spice?',
+            answer: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor',
+        },
+        {
+            question: 'Good taste, lasts long and fresh?',
+            answer: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor',
+        },
+        {
+            question: 'Check ingredient before buying??',
+            answer: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor',
+        },
+        {
+            question: 'Can I change my order?',
+            answer: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor',
+        },
+        {
+            question: 'How to keep the Namkeen crunchier?',
+            answer: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor',
+        },
+        {
+            question: 'Awesome taste?',
+            answer: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor',
+        },
+        {
+            question: 'Was a good product this time!?',
+            answer: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor',
         },
     ];
 
@@ -72,6 +104,7 @@ export default function ProductScreen() {
                             {productContent}
                         </div>
                     </div>
+                    <FAQAccordion faqs={faqs} />
                 </div>
             </div>
         </PageContainer>
