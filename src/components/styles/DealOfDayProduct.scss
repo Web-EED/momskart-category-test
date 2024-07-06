@@ -72,6 +72,8 @@
     font-weight: 500;
     padding: 0 10px;
     text-align: left;
+    -webkit-text-stroke: 0.25px black;
+    text-transform: capitalize !important;
 }
 
 .product-price-container .product-price {

@@ -12,12 +12,11 @@ import useEcomerce from '~/hooks/useEcomerce';
 import { useSelector } from 'react-redux';
 import { notification } from 'antd';
 
-const DealOfDayProduct = ({ product }) => {
+const BestSellerProduct = ({ product }) => {
     const { thumbnailImage, badge, title } = useProduct(product);
     const { price, sale_price, is_sale } = product;
     const { addItem } = useEcomerce();
     const ecomerce = useSelector(({ ecomerce }) => ecomerce);
-    console.log(product);
 
     const [liked, setLiked] = useState(false);
     const handleLikeToggle = () => {
@@ -141,4 +140,4 @@ const DealOfDayProduct = ({ product }) => {
     );
 };
 
-export default DealOfDayProduct;
+export default BestSellerProduct;
