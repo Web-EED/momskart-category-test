@@ -8,10 +8,10 @@ export const stickyHeader = () => {
     const shop_dropdown = document.getElementById('sticky_id');
     if (header !== null) {
         if (number >= 300) {
-            // header.classList.add('header--sticky');
+            header.classList.add('header--sticky');
             shop_dropdown.style.color = 'red';
         } else {
-            // header.classList.remove('header--sticky');
+            header.classList.remove('header--sticky');
         }
     }
 };
