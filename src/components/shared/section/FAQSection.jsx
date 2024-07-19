@@ -1,6 +1,37 @@
 import { useState, useRef } from 'react';
 
-const FAQAccordion = ({ faqs }) => {
+export const defaultFaqs = [
+    {
+        question: 'Authentic Crunch with Delightful Spice?',
+        answer: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor',
+    },
+    {
+        question: 'Good taste, lasts long and fresh?',
+        answer: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor',
+    },
+    {
+        question: 'Check ingredient before buying??',
+        answer: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor',
+    },
+    {
+        question: 'Can I change my order?',
+        answer: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor',
+    },
+    {
+        question: 'How to keep the Namkeen crunchier?',
+        answer: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor',
+    },
+    {
+        question: 'Awesome taste?',
+        answer: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor',
+    },
+    {
+        question: 'Was a good product this time!?',
+        answer: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor',
+    },
+];
+
+const FAQAccordion = ({ faqs = defaultFaqs }) => {
     const [expandedIndex, setExpandedIndex] = useState(null);
     const refs = useRef([]);
 
@@ -18,7 +49,10 @@ const FAQAccordion = ({ faqs }) => {
             {faqList.map((faq, index) => {
                 const actualIndex = columnIndex * half + index;
                 return (
-                    <div key={index} className="faq-item" ref={(el) => refs.current[actualIndex] = el}>
+                    <div
+                        key={index}
+                        className="faq-item"
+                        ref={(el) => (refs.current[actualIndex] = el)}>
                         <div
                             className="faq-question"
                             onClick={() => handleToggle(columnIndex, index)}>

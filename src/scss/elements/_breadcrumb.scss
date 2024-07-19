@@ -1,4 +1,61 @@
 .ps-breadcrumb {
+    .breadcrumb {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+
+        li {
+            display: inline-block;
+            font-size: 14px;
+            line-height: 20px;
+            color: $color-text;
+
+            &:before {
+                content: '/';
+                //font-family: FontAwesome;
+                margin: 0 5px;
+            }
+
+            &:first-child {
+                padding-left: 0;
+
+                &:before {
+                    display: none;
+                }
+            }
+        }
+
+        a {
+            line-height: 20px;
+            color: #09c;
+
+            &:hover {
+                color: $color-1st;
+            }
+
+            i {
+                margin-right: 5px;
+            }
+        }
+    }
+
+    @include media('<md') {
+        position: relative;
+        padding: 10px 0;
+        .breadcrumb {
+            li {
+                font-size: 12px;
+            }
+
+            a {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+.breadcrumb-category {
     padding-bottom: 20px;
     .container {
         max-width: 1620px;
@@ -60,6 +117,58 @@
 
             a {
                 font-size: 12px;
+            }
+        }
+    }
+}
+
+.breadcrumb-product {
+    background: #f2f2f2;
+    padding: 15px 0;
+
+    .breadcrumb {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+
+        li {
+            display: inline-block;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 20px;
+            color: $color-text;
+            font-family: $font-4th;
+            -webkit-text-stroke: 0.5px black;
+
+            &:before {
+                content: '/';
+                //font-family: FontAwesome;
+                margin: 0 5px;
+            }
+
+            &:first-child {
+                padding-left: 0;
+
+                &:before {
+                    display: none;
+                }
+            }
+        }
+
+        a {
+            font-family: $font-4th;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+            color: #575656;
+
+            &:hover {
+                color: $color-1st;
+            }
+
+            i {
+                margin-right: 5px;
             }
         }
     }

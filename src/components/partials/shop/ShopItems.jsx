@@ -109,7 +109,10 @@ const ShopItems = ({ columns = 4, pageSize = 12 }) => {
                 if (listView) {
                     const items = products.map((item) => (
                         <div className={classes} key={item.id}>
-                            <DealOfDayProduct product={item} />
+                            <DealOfDayProduct
+                                product={item}
+                                extraClass={'like-button-red'}
+                            />
                         </div>
                     ));
                     return (
@@ -180,20 +183,7 @@ const ShopItems = ({ columns = 4, pageSize = 12 }) => {
                 </div>
                 <div className="ps-shopping__content">{productsContent}</div>
                 <div className="ps-shopping__footer text-center">
-                    <div className="ps-pagination">
-                        <Pagination
-                            total={total - 1}
-                            pageSize={pageSize}
-                            responsive={true}
-                            showSizeChanger={false}
-                            current={
-                                pageIndex !== undefined
-                                    ? parseInt(pageIndex)
-                                    : 1
-                            }
-                            onChange={(e) => handlePagination(e)}
-                        />
-                    </div>
+                    <div className="ps-pagination"></div>
                 </div>
             </div>
         </Suspense>

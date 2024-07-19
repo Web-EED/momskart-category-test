@@ -370,7 +370,7 @@
         .filter-component {
             padding: 20px 25px;
             border-radius: 15px;
-            box-shadow: 0px 4px 25px 0px #0000000D;
+            box-shadow: 0px 4px 25px 0px #0000000d;
             background-color: #fff;
 
             .filter-inner {
@@ -390,7 +390,7 @@
                 font-weight: 700;
                 font-size: 20px;
                 font-weight: bold;
-                color: #E91E63;
+                color: #e91e63;
             }
 
             .filter-icon {
@@ -403,12 +403,20 @@
             }
 
             .category-item {
+                position: relative;
                 padding: 10px 0;
                 font-family: $font-4th;
+                font-weight: 400;
                 font-size: 16px;
                 color: #00000099;
                 cursor: pointer;
-                -webkit-text-stroke: 0.5px #00000099;
+                -webkit-text-stroke: 0.65px #00000099;
+
+                .mk-filter-rightarrow {
+                    position: absolute;
+                    top: 35%;
+                    right: 0;
+                }
             }
 
             .filter-price {
@@ -446,8 +454,8 @@
                 background: #ddd;
                 outline: none;
                 opacity: 0.7;
-                -webkit-transition: .2s;
-                transition: opacity .2s;
+                -webkit-transition: 0.2s;
+                transition: opacity 0.2s;
             }
 
             .slider::-webkit-slider-thumb {
@@ -455,7 +463,7 @@
                 appearance: none;
                 width: 20px;
                 height: 20px;
-                background: #E91E63;
+                background: #e91e63;
                 cursor: pointer;
                 border-radius: 50%;
             }
@@ -463,7 +471,7 @@
             .slider::-moz-range-thumb {
                 width: 20px;
                 height: 20px;
-                background: #E91E63;
+                background: #e91e63;
                 cursor: pointer;
                 border-radius: 50%;
             }
@@ -471,7 +479,8 @@
             .price-values {
                 display: flex;
                 justify-content: space-between;
-                font-family: Arial, sans-serif;
+                font-family: $font-4th !important;
+                font-weight: 500;
                 font-size: 14px;
                 margin-top: 10px;
                 color: #333;
@@ -480,8 +489,8 @@
             .apply-filter {
                 width: 100%;
                 padding: 10px 0;
-                margin-top: 20px;
-                background-color: #1E3A8A;
+                margin-top: 10px;
+                background-color: #073978;
                 color: #fff;
                 border: none;
                 border-radius: 30px;
@@ -490,6 +499,7 @@
                 font-size: 14px;
                 font-weight: 400;
                 text-align: center;
+                -webkit-text-stroke: 0.1px white;
             }
 
             /* React slider styling */
@@ -504,7 +514,7 @@
             .example-thumb {
                 height: 20px;
                 width: 20px;
-                background-color: #E91E63;
+                background-color: #e91e63;
                 border-radius: 50%;
                 cursor: pointer;
                 position: absolute;
@@ -515,14 +525,14 @@
             .example-track {
                 top: 0;
                 bottom: 0;
-                background: #E91E63;
+                background: #e91e63;
                 border-radius: 4px;
             }
 
-            .example-track-0, .example-track-2 {
-                background: #F0F0F0;
+            .example-track-0,
+            .example-track-2 {
+                background: #f0f0f0;
             }
-
         }
     }
 
@@ -2381,9 +2391,13 @@
 
 .ps-shop-items {
     .row {
+        margin: 0 -20px;
         gap: 50px 0;
     }
     @media screen and (max-width: 480px) {
+        .slick-slider {
+            margin: 0 -10px;
+        }
         .row {
             margin: 0 -5px !important;
 
@@ -2398,7 +2412,7 @@
     }
     @media screen and (min-width: 768px) {
         .row {
-            margin: 0;
+            margin: 0 -20px;
 
             > * {
                 padding: 0;
@@ -2440,5 +2454,67 @@
                 font-size: 30px;
             }
         }
+    }
+}
+
+.slick-slider {
+    margin: 0 -25px;
+    @media screen and (max-width: 480px) {
+        margin: 0 -10px;
+    }
+}
+.slick-track {
+    display: flex;
+    gap: 10px;
+}
+.slick-prev,
+.slick-next {
+    background: #073978 !important;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50%;
+    z-index: 1;
+
+    @media screen and (max-width: 767px) {
+        background: #ffffff00 !important;
+    }
+}
+.slick-prev {
+    left: 0% !important;
+    top: 45%;
+
+    @media screen and (max-width: 767px) {
+        left: -20px !important;
+    }
+}
+.slick-next {
+    right: 0% !important;
+    top: 45%;
+
+    @media screen and (max-width: 767px) {
+        right: -25px !important;
+    }
+}
+.slick-prev:before,
+.slick-next:before {
+    opacity: 1 !important;
+    position: absolute;
+}
+.slick-prev:before {
+    content: url('/static/img/mk-left-icon.svg') !important;
+    left: 32.5%;
+    top: 25%;
+
+    @media screen and (max-width: 767px) {
+        content: url('/static/img/mkt-mobileLeft.svg') !important;
+    }
+}
+.slick-next:before {
+    content: url('/static/img/mk-right-icon.svg') !important;
+    left: 32.5%;
+    top: 25%;
+
+    @media screen and (max-width: 767px) {
+        content: url('/static/img/mkt-mobileRight.svg') !important;
     }
 }
