@@ -1,22 +1,17 @@
 'use client';
 import React, { useMemo, useState } from 'react';
 import BreadCrumb from '~/components/elements/BreadCrumb';
-import WidgetShopCategories from '~/components/shared/widgets/WidgetShopCategories';
-import WidgetShopBrands from '~/components/shared/widgets/WidgetShopBrands';
-import WidgetShopFilterByPriceRange from '~/components/shared/widgets/WidgetShopFilterByPriceRange';
 import { useParams } from 'next/navigation';
 import ProductItems from '~/components/partials/product/ProductItems';
 import PageContainer from '~/components/layouts/PageContainer';
 import FooterDefault from '~/components/shared/footers/FooterDefault';
-import Newletters from '~/components/partials/commons/Newletters';
 import useProducCategory from '~/hooks/useProducCategory';
 import ShopItems from '~/components/partials/shop/ShopItems';
 import FAQAccordion from '~/components/shared/section/FAQSection';
 import MKTFilterWidget from '~/components/shared/widgets/MKTFilterWidget';
-import BestSellerProduct from '~/components/elements/products/BestSellerProduct';
-import ShopCarouselProductBox from '~/components/partials/shop/ShopCarouselProductBox';
 import SortByDropdown from '~/components/shared/widgets/SortByDropdown';
 import ShopItemsCarousel from '~/components/partials/shop/ShopItemsCarousel';
+import Link from 'next/link';
 
 export default function ProductScreen() {
     const { slug } = useParams();
@@ -34,6 +29,70 @@ export default function ProductScreen() {
         },
         {
             text: category ? category.name : 'Namkeen',
+        },
+    ];
+
+    const faqs = [
+        {
+            question: 'Authentic Crunch with Delightful Spice?',
+            answer: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor',
+        },
+        {
+            question: 'Good taste, lasts long and fresh?',
+            answer: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor',
+        },
+        {
+            question: 'Check ingredient before buying??',
+            answer: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor',
+        },
+        {
+            question: 'Can I change my order?',
+            answer: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor',
+        },
+        {
+            question: 'How to keep the Namkeen crunchier?',
+            answer: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor',
+        },
+        {
+            question: 'Awesome taste?',
+            answer: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor',
+        },
+        {
+            question: 'Was a good product this time!?',
+            answer: 'Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat aute irure dolor',
+        },
+    ];
+
+    const superCategories = [
+        {
+            src: '/static/img/mk-sc-sev.png',
+            alt: 'Momskart Super Category Sev',
+            name: 'Sev',
+        },
+        {
+            src: '/static/img/mk-sc-namkeen.png',
+            alt: 'Momskart Super Category Namkeen',
+            name: 'Namkeen',
+        },
+        {
+            src: '/static/img/mk-sc-khakhras.png',
+            alt: 'Momskart Super Category Khakhra',
+            name: 'Khakhras',
+        },
+        {
+            src: '/static/img/mk-sc-biscuits.png',
+            alt: 'Momskart Super Category Biscuits & Cookies',
+            name: 'Biscuits & Cookies',
+        },
+        {
+            src: '/static/img/mk-sc-papad.png',
+            alt: 'Momskart Super Category Papad',
+            name: 'Papad',
+        },
+        {
+            src: '/static/img/mk-sc-snacks.png',
+            alt: 'Momskart Super Category Snacks with Tea',
+            name: 'Snacks with Tea',
         },
     ];
 
@@ -63,6 +122,25 @@ export default function ProductScreen() {
                             alt="Momskart Namkeen Banner"
                         />
                     </div>
+                    <div className="supercategories-container">
+                        <h3>Super Categories</h3>
+                        <div className="super-category-icons">
+                            {superCategories.map((superCategory, index) => (
+                                <Link
+                                    key={index}
+                                    href={'/'}
+                                    className="super-category-icon">
+                                    <img
+                                        src={superCategory.src}
+                                        alt={superCategory.alt}
+                                        width={'150px'}
+                                        height={'150px'}
+                                    />
+                                    <span>{superCategory.name}</span>
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
                     <div className="ps-layout--shop ps-shop--category">
                         <div className="ps-layout__left">
                             <MKTFilterWidget />
@@ -73,10 +151,7 @@ export default function ProductScreen() {
                                     display: 'flex',
                                     justifyContent: 'space-between',
                                 }}>
-                                <BreadCrumb
-                                    breacrumb={breadCrumb}
-                                    extraClass={'breadcrumb-category'}
-                                />
+                                <BreadCrumb breacrumb={breadCrumb} />
                                 <SortByDropdown />
                             </div>
                             <ShopItems />
@@ -88,9 +163,7 @@ export default function ProductScreen() {
                     </div>
                     <div class="best-seller-container">
                         <h3>Best Seller in Namkeen</h3>
-                        <ShopItemsCarousel
-                            extraClass={'bs-carousel-category'}
-                        />
+                        <ShopItemsCarousel />
                     </div>
                     <div class="pre-footer-container">
                         <h3>
@@ -152,7 +225,7 @@ export default function ProductScreen() {
                             Lorem Ipsum
                         </p>
                         <h3>FAQ</h3>
-                        <FAQAccordion />
+                        <FAQAccordion faqs={faqs} />
                     </div>
                 </div>
             </div>

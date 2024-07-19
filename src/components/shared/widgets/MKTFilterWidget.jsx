@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import ReactSlider from 'react-slider';
 
+const categoryItems = [
+    'Namkeen',
+    'Khakhras',
+    'Biscuits & Cookies',
+    'Sev',
+    'Snacks with Tea',
+];
+
 const MKTFilterWidget = () => {
     const [priceRange, setPriceRange] = useState([50, 1000]);
 
@@ -9,7 +17,9 @@ const MKTFilterWidget = () => {
     };
 
     const handleApplyFilter = () => {
-        alert(`Filters applied:\nCategory: \nPrice: ₹${priceRange[0]} - ₹${priceRange[1]}`);
+        alert(
+            `Filters applied:\nCategory: \nPrice: ₹${priceRange[0]} - ₹${priceRange[1]}`
+        );
     };
 
     return (
@@ -17,15 +27,22 @@ const MKTFilterWidget = () => {
             <div className="filter-inner">
                 <div className="filter-header">
                     <span className="filter-title">Filters</span>
-                    <img src="/static/img/settings-icon.svg" alt="Filter Icon" className="filter-icon" />
+                    <img
+                        src="/static/img/settings-icon.svg"
+                        alt="Filter Icon"
+                        className="filter-icon"
+                    />
                 </div>
-                <div className="filter-category">
-                    <div className="category-item">Namkeen</div>
-                    <div className="category-item">Khakhras</div>
-                    <div className="category-item">Biscuits & Cookies</div>
-                    <div className="category-item">Sev</div>
-                    <div className="category-item">Snacks with Tea</div>
-                </div>
+                <hr style={{ margin: '20px 0' }} />
+                {categoryItems.map((category, index) => (
+                    <div key={index} className="category-item">
+                        {category}
+                        <img
+                            src="/static/img/mk-filter-right-arrow.svg"
+                            className="mk-filter-rightarrow"
+                        />
+                    </div>
+                ))}
                 <hr />
                 <div className="filter-price">
                     <div className="price-header">
@@ -51,8 +68,10 @@ const MKTFilterWidget = () => {
                         </div>
                     </div>
                 </div>
-                <hr style={{margin: "20px 0"}} />
-                <button className="apply-filter" onClick={handleApplyFilter}>Apply Filter</button>
+                <hr style={{ margin: '20px 0' }} />
+                <button className="apply-filter" onClick={handleApplyFilter}>
+                    Apply Filter
+                </button>
             </div>
         </aside>
     );

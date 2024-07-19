@@ -879,6 +879,7 @@
 
     .ps-product__header {
         display: flex;
+        justify-content: space-between;
         flex-flow: row nowrap;
 
         > * {
@@ -886,12 +887,18 @@
         }
 
         .ps-product__thumbnail {
-            max-width: 43%;
+            max-width: 45.679%;
         }
 
         .ps-product__info {
-            max-width: 57%;
+            max-width: 44.75%;
             padding-left: 30px;
+
+            header {
+                h1 {
+                    font-family: $font-5th !important;
+                }
+            }
         }
     }
 

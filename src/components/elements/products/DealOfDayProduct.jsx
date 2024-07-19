@@ -12,7 +12,7 @@ import useEcomerce from '~/hooks/useEcomerce';
 import { useSelector } from 'react-redux';
 import { notification } from 'antd';
 
-const DealOfDayProduct = ({ product }) => {
+const DealOfDayProduct = ({ product, extraClass }) => {
     const { thumbnailImage, badge, title } = useProduct(product);
     const { price, sale_price, is_sale } = product;
     const { addItem } = useEcomerce();
@@ -62,17 +62,26 @@ const DealOfDayProduct = ({ product }) => {
 
     // logic for 2 liner titles
     const truncateTitle = (title) => {
+        let truncateLength = window.innerWidth <= 768 ? 40 : 60;
+
         if (React.isValidElement(title)) {
             title = title.props.children;
         }
 
         if (typeof title === 'string') {
-            if (title.length > 60) {
-                return `${title.slice(0, 60)}...`;
+            if (title.length > truncateLength) {
+                return `${title.slice(0, truncateLength)}...`;
             }
         }
         return title;
     };
+
+    // temporary logic for dynamic discounts
+    const getRandomDiscount = () => {
+        return Math.floor(Math.random() * (70 - 10 + 1)) + 10;
+    };
+
+    const discountPercentage = useMemo(() => getRandomDiscount(), []);
 
     return (
         <div className="product-card">
@@ -80,12 +89,33 @@ const DealOfDayProduct = ({ product }) => {
                 <Link href={'/product/[pid]'} as={`/product/${product.slug}`}>
                     {thumbnailImage}
                 </Link>
-                <IconButton onClick={handleLikeToggle} className="like-button">
-                    {liked ? (
-                        <FavoriteIcon style={{ color: 'red' }} />
-                    ) : (
-                        <FavoriteBorderIcon />
-                    )}
+                <div className="discount-badge">{discountPercentage}%</div>
+                {console.log(discountPercentage)}
+                <IconButton
+                    sx={{
+                        backgroundColor: liked
+                            ? 'white'
+                            : extraClass === 'like-button-red'
+                              ? '#dd195b'
+                              : '#073978',
+                        '&:hover': {
+                            backgroundColor: liked
+                                ? '#f0f0f0'
+                                : extraClass === 'like-button-red'
+                                  ? '#F11A62'
+                                  : '#0A4791',
+                        },
+                        '& svg': {
+                            color: liked
+                                ? extraClass === 'like-button-red'
+                                    ? '#dd195b'
+                                    : '#073978'
+                                : 'white',
+                        },
+                    }}
+                    onClick={handleLikeToggle}
+                    className={`like-button ${extraClass}`}>
+                    {liked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
                 </IconButton>
             </div>
             <div className="product-details">
@@ -118,10 +148,11 @@ const DealOfDayProduct = ({ product }) => {
                     </div>
                     <div
                         style={{
-                            width: '20%',
+                            width: '25%',
                             display: 'flex',
                             justifyContent: 'flex-end',
                             alignItems: 'flex-end',
+                            paddingRight: '10px',
                         }}>
                         <div className="trusted-sign">
                             <img

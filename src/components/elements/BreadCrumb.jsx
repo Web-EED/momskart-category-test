@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 
-const BreadCrumb = ({ breacrumb, layout }) => {
+const BreadCrumb = ({ breacrumb, layout, extraClass }) => {
     return (
-        <div className="ps-breadcrumb">
+        <div className={`ps-breadcrumb ${extraClass}`}>
             <div
                 className={
                     layout === 'fullwidth' ? 'ps-container' : 'container'
