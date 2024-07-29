@@ -14,12 +14,14 @@ import useGetProducts from '~/hooks/useGetProducts';
 import ProductWidgets from '~/components/partials/product/ProductWidgets';
 import FAQAccordion from '~/components/shared/section/FAQSection';
 import ShopItemsCarousel from '~/components/partials/shop/ShopItemsCarousel';
+import PreFooterContent from '~/components/shared/section/PreFooterContent';
 
 const ProductDefaultPage = () => {
     const params = useParams();
     const { pid } = params;
     const { loading, getStrapiProduct, product, relatedProduct } =
         useGetProducts();
+    console.log(product);
     useEffect(() => {
         getStrapiProduct(pid);
     }, [pid]);
@@ -96,7 +98,7 @@ const ProductDefaultPage = () => {
                         <h3>Related Product</h3>
                         <ShopItemsCarousel extraClass={'bs-carousel-product'} />
                     </div>
-                    <div class="pre-footer-container">
+                    <PreFooterContent>
                         <h3>
                             Welcome to the flavorful world of Indian snacks and
                             sweets!
@@ -157,7 +159,7 @@ const ProductDefaultPage = () => {
                         </p>
                         <h3>FAQ</h3>
                         <FAQAccordion />
-                    </div>
+                    </PreFooterContent>
                 </div>
             </div>
         </PageContainer>

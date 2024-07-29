@@ -1,5 +1,5 @@
 'use client';
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import BreadCrumb from '~/components/elements/BreadCrumb';
 import WidgetShopCategories from '~/components/shared/widgets/WidgetShopCategories';
 import WidgetShopBrands from '~/components/shared/widgets/WidgetShopBrands';
@@ -17,11 +17,30 @@ import BestSellerProduct from '~/components/elements/products/BestSellerProduct'
 import ShopCarouselProductBox from '~/components/partials/shop/ShopCarouselProductBox';
 import SortByDropdown from '~/components/shared/widgets/SortByDropdown';
 import ShopItemsCarousel from '~/components/partials/shop/ShopItemsCarousel';
+import PreFooterContent from '~/components/shared/section/PreFooterContent';
+// import MKTCustomBanner from '~/components/shared/section/MKTCustomBanner';
+import useBanner from '~/hooks/useBanner';
 
 export default function ProductScreen() {
     const { slug } = useParams();
-    const [category, setCategory] = useState(null);
+    // console.log(slug);
+    // console.log(slug, 'slug');
+
     const { loading, categoryDetails } = useProducCategory(slug);
+    const { category, getCategoryBySuperCat } = useBanner();
+    const [categoryData, setCategoryData] = useState({});
+    useEffect(() => {
+        if (category && category.cat_list) {
+            setCategoryData(
+                category.cat_list.find((item) => item.slug === slug)
+            );
+            // console.log(categoryData, 'new slug');
+        }
+    }, [category]);
+
+    useEffect(() => {
+        getCategoryBySuperCat();
+    }, []);
 
     const breadCrumb = [
         {
@@ -49,6 +68,9 @@ export default function ProductScreen() {
         }
     }, [loading, categoryDetails, products]);
 
+    console.log(category?.cat_list?.[1]?.cat_banner, 'cat list from cat');
+    // console.log(category.cat_list[1].cat_banner, 'cat list from cat');
+
     return (
         <PageContainer
             footer={<FooterDefault />}
@@ -57,9 +79,10 @@ export default function ProductScreen() {
             <div className="ps-page--shop">
                 <div className="container">
                     <div className="banner-container">
-                        <h2>Buy Namkeen Online</h2>
+                        <h2>Buy {categoryData?.name} Online</h2>
+                        {/* <MKTCustomBanner /> */}
                         <img
-                            src="https://i.ibb.co/Xs2z0jj/Pickles-webp-2.webp"
+                            src={`https://momskart-live-images1.s3.ap-south-1.amazonaws.com/uploads/category/${category?.cat_list?.[1]?.cat_banner}`}
                             alt="Momskart Namkeen Banner"
                         />
                     </div>
@@ -92,7 +115,7 @@ export default function ProductScreen() {
                             extraClass={'bs-carousel-category'}
                         />
                     </div>
-                    <div class="pre-footer-container">
+                    <PreFooterContent>
                         <h3>
                             Welcome to the flavorful world of Indian snacks and
                             sweets!
@@ -153,7 +176,7 @@ export default function ProductScreen() {
                         </p>
                         <h3>FAQ</h3>
                         <FAQAccordion />
-                    </div>
+                    </PreFooterContent>
                 </div>
             </div>
         </PageContainer>

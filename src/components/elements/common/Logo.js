@@ -33,6 +33,11 @@ const Logo = ({ type }) => {
             url: '/home/organic',
             img: 'static/img/logo-organic.png',
         };
+    } else if (type === 'product') {
+        data = {
+            url: '/home',
+            img: 'static/img/momskart-logo.png',
+        };
     } else {
         data = {
             url: '/',

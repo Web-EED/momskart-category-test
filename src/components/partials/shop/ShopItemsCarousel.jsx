@@ -21,47 +21,6 @@ import 'slick-carousel/slick/slick-theme.css';
 import SliderNextArrow from '~/components/elements/slider-custom-buttons/SliderNextArrow';
 import SliderPrevArrow from '~/components/elements/slider-custom-buttons/SliderPrevArrow';
 
-// const sliderSettings = {
-//     dots: false,
-//     infinite: true,
-//     speed: 500,
-//     slidesToShow: 5,
-//     slidesToScroll: 1,
-//     // nextArrow: isMobile ? <MobileNextArrow /> : <DesktopNextArrow />,
-//     // prevArrow: isMobile ? <MobilePrevArrow /> : <DesktopPrevArrow />,
-//     // nextArrow: <SampleNextArrow />,
-//     // prevArrow: <SamplePrevArrow />,
-//     responsive: [
-//         {
-//             breakpoint: 1024,
-//             settings: {
-//                 slidesToShow: 4,
-//                 slidesToScroll: 1,
-//                 infinite: true,
-//                 dots: true,
-//             },
-//         },
-//         {
-//             breakpoint: 768,
-//             settings: {
-//                 slidesToShow: 2,
-//                 slidesToScroll: 1,
-//                 infinite: true,
-//                 dots: true,
-//             },
-//         },
-//         {
-//             breakpoint: 480,
-//             settings: {
-//                 slidesToShow: 2,
-//                 slidesToScroll: 1,
-//                 infinite: true,
-//                 dots: true,
-//             },
-//         },
-//     ],
-// };
-
 const ShopItemsCarousel = ({ columns = 4, pageSize = 3, extraClass }) => {
     const Router = useRouter();
     const searchParams = useSearchParams();
@@ -125,7 +84,6 @@ const ShopItemsCarousel = ({ columns = 4, pageSize = 3, extraClass }) => {
             };
         }
         getProducts(params);
-        // handleSetColumns();
     }, [query]);
 
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);

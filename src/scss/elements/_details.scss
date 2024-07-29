@@ -191,7 +191,8 @@
         align-items: center;
         margin-bottom: 20px;
         padding-bottom: 6px;
-        border-bottom: 1px solid #e1e1e1;
+        // border-bottom: 1px solid #e1e1e1;
+        font-family: $font-5th !important;
 
         p {
             position: relative;
@@ -822,11 +823,35 @@
         figure {
             position: relative;
             display: block;
-            max-width: calc(100% - 60px);
-            padding-left: 10px;
+            max-width: calc(100% - 150px);
+            padding-left: 35px;
         }
         .product__thumbnailImages {
-            max-width: 60px;
+            max-width: 150px;
+            overflow-x: hidden;
+            height: 550px;
+            border-radius: 20px;
+
+            /* width */
+            &::-webkit-scrollbar {
+                width: 5px;
+            }
+
+            /* Track */
+            &::-webkit-scrollbar-track {
+                background: #f7f7f7;
+            }
+
+            /* Handle */
+            &::-webkit-scrollbar-thumb {
+                background: #083a7826;
+                border-radius: 20px;
+            }
+
+            /* Handle on hover */
+            &::-webkit-scrollbar-thumb:hover {
+                background: #073978;
+            }
         }
 
         .ps-product__variants {
@@ -887,7 +912,9 @@
         }
 
         .ps-product__thumbnail {
-            max-width: 45.679%;
+            max-width: 100%;
+            padding-bottom: 80px;
+            border-bottom: 1px solid #0000001a;
         }
 
         .ps-product__info {
@@ -897,6 +924,20 @@
             header {
                 h1 {
                     font-family: $font-5th !important;
+                    font-weight: 500;
+                    -webkit-text-stroke: 0.75px black;
+                }
+                p {
+                    font-family: $font-5th !important;
+                    font-weight: 700;
+                    font-size: 16px;
+
+                    a {
+                        strong {
+                            font-family: $font-5th !important;
+                            color: #073978;
+                        }
+                    }
                 }
             }
         }

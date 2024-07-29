@@ -12,6 +12,7 @@ import MKTFilterWidget from '~/components/shared/widgets/MKTFilterWidget';
 import SortByDropdown from '~/components/shared/widgets/SortByDropdown';
 import ShopItemsCarousel from '~/components/partials/shop/ShopItemsCarousel';
 import Link from 'next/link';
+import PreFooterContent from '~/components/shared/section/PreFooterContent';
 
 export default function ProductScreen() {
     const { slug } = useParams();
@@ -165,7 +166,7 @@ export default function ProductScreen() {
                         <h3>Best Seller in Namkeen</h3>
                         <ShopItemsCarousel />
                     </div>
-                    <div class="pre-footer-container">
+                    <PreFooterContent>
                         <h3>
                             Welcome to the flavorful world of Indian snacks and
                             sweets!
@@ -226,7 +227,7 @@ export default function ProductScreen() {
                         </p>
                         <h3>FAQ</h3>
                         <FAQAccordion faqs={faqs} />
-                    </div>
+                    </PreFooterContent>
                 </div>
             </div>
         </PageContainer>

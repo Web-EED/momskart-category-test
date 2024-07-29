@@ -17,7 +17,6 @@ const DealOfDayProduct = ({ product, extraClass }) => {
     const { price, sale_price, is_sale } = product;
     const { addItem } = useEcomerce();
     const ecomerce = useSelector(({ ecomerce }) => ecomerce);
-    console.log(product);
 
     const [liked, setLiked] = useState(false);
     const handleLikeToggle = () => {
@@ -90,7 +89,6 @@ const DealOfDayProduct = ({ product, extraClass }) => {
                     {thumbnailImage}
                 </Link>
                 <div className="discount-badge">{discountPercentage}%</div>
-                {console.log(discountPercentage)}
                 <IconButton
                     sx={{
                         backgroundColor: liked

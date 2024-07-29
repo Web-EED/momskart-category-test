@@ -3,11 +3,11 @@ import Link from 'next/link';
 import Rating from '~/components/elements/Rating';
 
 const ModuleDetailTopInformation = ({ product }) => {
-    const { sale, sale_price, title, price, business_name } =
+    const { sale, sale_price, title, price, business_name, seller_name } =
         product;
 
     const productBrandName = useMemo(() => {
-        return business_name? business_name : 'No Brand';
+        return business_name ? business_name : 'No Brand';
     }, [business_name]);
 
     const productPrice = useMemo(() => {
@@ -42,19 +42,24 @@ const ModuleDetailTopInformation = ({ product }) => {
         return title || 'Untitled Product';
     }, [title]);
 
+    const vendor = useMemo(() => {
+        if (!seller_name) return 'No Vendor';
+        return seller_name ? seller_name : 'No Vendor';
+    }, [seller_name]);
+
     return (
         <header>
             <h1>{productTitle}</h1>
+            <p>
+                Sold By:
+                <Link href={'/shop'}>
+                    <strong> {vendor}</strong>
+                </Link>
+            </p>
             <div className="ps-product__meta">
-                <p>
-                    Brand:
-                    <Link href={'/shop'} className="ml-2 text-capitalize">
-                        {productBrandName}
-                    </Link>
-                </p>
                 <div className="ps-product__rating">
                     <Rating />
-                    <span>(1 review)</span>
+                    <span>1000 review</span>
                 </div>
             </div>
             {productPrice}

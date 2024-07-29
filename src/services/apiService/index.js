@@ -2,21 +2,20 @@ import BaseService from '../httpService';
 const formDataHeader = () => {
     let _h = {
         headers: {
-            'Content-Type': 'multipart/form-data'
-        }
+            'Content-Type': 'multipart/form-data',
+        },
     };
-    return _h
-}
+    return _h;
+};
 const formDataRequest = (query) => {
     let form_data = new FormData();
-    Object.keys(query).forEach(obj_key => {
-        console.log(obj_key, "ibside", query[obj_key], form_data);
+    Object.keys(query).forEach((obj_key) => {
+        console.log(obj_key, 'ibside', query[obj_key], form_data);
         form_data.append(obj_key, query[obj_key]);
-
-    })
-    console.log(form_data,"form ahi");
-    return form_data
-}
+    });
+    console.log(form_data, 'form ahi');
+    return form_data;
+};
 const getDeviceId = () => {
     let cart_id = localStorage.getItem('cart_id');
     if (!cart_id) {
@@ -26,13 +25,13 @@ const getDeviceId = () => {
     return cart_id;
 };
 const getUserId = () => {
-    let user_id = localStorage.getItem("user_id");
-    return user_id
-}
+    let user_id = localStorage.getItem('user_id');
+    return user_id;
+};
 const makeQuery = (data = {}) => {
     data.device_id = getDeviceId();
     if (getUserId()) {
-    data.user_id = getUserId();
+        data.user_id = getUserId();
     }
     return data;
 };
@@ -49,8 +48,23 @@ const loadHomeAllData = async (query = { device_id: '123', user_id: '0' }) => {
     query = makeQuery(query);
     let res = await BaseService.post(
         'https://momskart.live/api/v1/index.php/customer_webapi/home/getHomeDataNew/',
+        // 'https://momskart.live/api/v1/customer_webapi/category/getCategoryFAQ',
+        // 'https://momskart.live/api/v1/index.php/customer_webapi/category/getSubcategories',
         { ...query }
     );
+    console.log(res, 'HomeData');
+    return res;
+};
+
+const loadCategoryBySuperCat = async (
+    query = { device_id: '123', super_cat_id: '18' }
+) => {
+    query = makeQuery(query);
+    let res = await BaseService.post(
+        'https://momskart.live/api/v1/index.php/customer_webapi/product/getProductList',
+        { ...query }
+    );
+    console.log(res, 'ProdList');
     return res;
 };
 
@@ -94,9 +108,11 @@ const addProductToCart = async (query = { device_id: '123', user_id: '0' }) => {
 const removeProductToCart = async (query = {}) => {
     query = makeQuery(query);
     let form_equest = formDataRequest(query);
-    console.log(form_equest,"return aaya");
-    let res = await BaseService.post('https://momskart.live/api/v1/index.php/customer_webapi/cart/removeCart',
-        form_equest, { ...formDataHeader()}
+    console.log(form_equest, 'return aaya');
+    let res = await BaseService.post(
+        'https://momskart.live/api/v1/index.php/customer_webapi/cart/removeCart',
+        form_equest,
+        { ...formDataHeader() }
     );
     return res;
 };
@@ -110,7 +126,7 @@ const loadCart = async (query = { device_id: '123', user_id: '0' }) => {
     return res;
 };
 
-const getUserDetails = async (query={}) => {
+const getUserDetails = async (query = {}) => {
     query = makeQuery(query);
     let res = await BaseService.post(
         'https://momskart.live/api/v1/index.php/customer_webapi/customer/getUserDetail',
@@ -119,40 +135,45 @@ const getUserDetails = async (query={}) => {
     return res;
 };
 
-const getCheckout = async (query={}) => {
+const getCheckout = async (query = {}) => {
     query = makeQuery(query);
-    let res = await BaseService.post('https://momskart.live/api/v1/index.php/customer_webapi/order/getCheckOut',
+    let res = await BaseService.post(
+        'https://momskart.live/api/v1/index.php/customer_webapi/order/getCheckOut',
         { ...query }
     );
     return res;
 };
 
 const checkServicibility = async (pincode) => {
-    let res = await BaseService.get('https://momskart.live/api/v1/index.php/customer_webapi/delhivery/checkPincode/'+pincode
+    let res = await BaseService.get(
+        'https://momskart.live/api/v1/index.php/customer_webapi/delhivery/checkPincode/' +
+            pincode
     );
     return res;
 };
 
 const generatePaymentToken = async (formData) => {
-    
-    let res = await BaseService.post('https://momskart.live/api/v1/PaytmMomskart.php',
+    let res = await BaseService.post(
+        'https://momskart.live/api/v1/PaytmMomskart.php',
         formData,
-        { ...formDataHeader()}
+        { ...formDataHeader() }
     );
     return res;
 };
 
 const createOrder = async (formData) => {
     // query = makeQuery(query);
-    let res = await BaseService.post('https://momskart.live/api/v1/index.php/customer_webapi/order/createOrder',
+    let res = await BaseService.post(
+        'https://momskart.live/api/v1/index.php/customer_webapi/order/createOrder',
         formData,
-        { ...formDataHeader()}
+        { ...formDataHeader() }
     );
     return res;
 };
 export {
     loadHomeData,
     loadHomeAllData,
+    loadCategoryBySuperCat,
     loadProductDetails,
     otpLogin,
     checkOtp,
@@ -163,5 +184,10 @@ export {
     removeProductToCart,
     checkServicibility,
     generatePaymentToken,
-    createOrder
+    createOrder,
 };
+
+// APIs:
+
+// 'https://momskart.live/api/v1/customer_webapi/category/getCategoryFAQ',
+// 'https://momskart.live/api/v1/index.php/customer_webapi/category/getSubcategories',
