@@ -113,6 +113,7 @@
 .swiper-carousel--variants {
     .swiper-wrapper {
         justify-content: flex-start;
+        gap: 25px;
     }
 
     .swiper-slide {
@@ -120,6 +121,7 @@
     }
     .swiper-slide-image {
         border: 1px solid transparent;
+        border-radius: 20px;
         transition: all 0.4s ease;
         &.active {
             border: 1px solid $color-1st;

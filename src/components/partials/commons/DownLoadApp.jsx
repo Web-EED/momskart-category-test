@@ -13,37 +13,27 @@ const DownloadApp = () => (
                         </div>
                         <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                             <div className="ps-block__content">
-                                <h3>Download Martfury App Now!</h3>
-                                <p>
-                                    Shopping fastly and easily more with our
-                                    app. Get a link to download the app on your
-                                    phone
+                                <p
+                                    style={{
+                                        color: '#DD195B',
+                                        WebkitTextStroke: '0.1px #DD195B',
+                                        fontWeight: 600,
+                                    }}>
+                                    #BadePyaarSeBanayaHai
                                 </p>
-                                <form
-                                    className="ps-form--download-app"
-                                    action="do_action"
-                                    method="post">
-                                    <div className="form-group--nest">
-                                        <input
-                                            className="form-control"
-                                            type="Email"
-                                            placeholder="Email Address"
-                                        />
-                                        <button className="ps-btn">
-                                            Subscribe
-                                        </button>
-                                    </div>
-                                </form>
+                                <h3>Download Momskart</h3>
+                                <p
+                                    style={{
+                                        color: '#003F8D',
+                                        WebkitTextStroke: '0.1px #003F8D',
+                                        fontWeight: 600,
+                                    }}>
+                                    Super App for Sellers
+                                </p>
                                 <p className="download-link">
                                     <a href="#">
                                         <img
                                             src="/static/img/google-play.png"
-                                            alt="martfury"
-                                        />
-                                    </a>
-                                    <a href="#">
-                                        <img
-                                            src="/static/img/app-store.png"
                                             alt="martfury"
                                         />
                                     </a>

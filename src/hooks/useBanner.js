@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useBoolean } from 'ahooks';
 import { getStrapiEntriesService } from '~/services/strapi/strapiQueryServices';
-import {  loadHomeAllData } from '~/services/apiService';
+import { loadHomeAllData, loadCategoryBySuperCat } from '~/services/apiService';
 import { APP_DEFAULT_PAGE_SIZE } from '~/constants/appConstants';
 
 const COLLECTION_TYPE = 'banners';
@@ -11,6 +11,7 @@ export default function useBanner(slug) {
         useBoolean();
     const [banners, setBanners] = useState([]);
     const [homedata, setHomeData] = useState({});
+    const [category, setCategory] = useState([]);
 
     const getBannersBySlugs = async (slugs) => {
         enableLoading();
@@ -49,11 +50,25 @@ export default function useBanner(slug) {
         }
     };
 
+    const getCategoryBySuperCat = async () => {
+        enableLoading();
+        try {
+            const response = await loadCategoryBySuperCat();
+            setCategory(response.data || []);
+        } catch (e) {
+            setCategory([]);
+        } finally {
+            disableLoading();
+        }
+    };
+
     return {
         loading,
         banners,
         homedata,
+        category,
         getBannersBySlugs,
-        getAllHomeData
+        getAllHomeData,
+        getCategoryBySuperCat,
     };
 }

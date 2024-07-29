@@ -1,15 +1,19 @@
 import React from 'react';
+import { defaultFaqs } from '~/components/shared/section/FAQSection';
 
-const PartialVendor = () => (
-    <section>
-        <h4>GoPro</h4>
-        <p>
-            Digiworld US, New York’s no.1 online retailer was established in May
-            2012 with the aim and vision to become the one-stop shop for retail
-            in New York with implementation of best practices both online
-        </p>
-        <a href="#">More Products from Gopro</a>
-    </section>
-);
+const PartialVendor = ({ qnas = defaultFaqs }) => {
+    return (
+        <div>
+            {qnas.map((qna, index) => {
+                return (
+                    <section className="qna-section">
+                        <h4>{qna.question}</h4>
+                        <p>{qna.answer}</p>
+                    </section>
+                );
+            })}
+        </div>
+    );
+};
 
 export default PartialVendor;

@@ -13,7 +13,7 @@
                 font-weight: 700;
                 color: #515356;
                 text-transform: uppercase;
-                border-bottom: 1px solid #e5e5e5;
+                // border-bottom: 1px solid #e5e5e5;
             }
         }
     }
@@ -22,9 +22,15 @@
         > tr {
             > td {
                 vertical-align: middle;
-                padding: 20px 30px;
-                border: 1px solid #ddd;
-                color: $color-text;
+                padding: 30px 105px;
+                font-family: $font-4th;
+                font-size: 20px;
+                color: black;
+                -webkit-text-stroke: 0.75px black;
+                border: none;
+                border-top: 0.5px solid #00000033;
+                border-bottom: 0.5px solid #00000033;
+                background: white;
             }
         }
     }
@@ -35,10 +41,10 @@
         tr {
             td {
                 &:first-child {
-                    background-color: #f4f4f4;
+                    background-color: #f5faff;
                     font-weight: 500;
                     color: $color-heading;
-                    width: 150px;
+                    width: 725px;
                 }
             }
         }
@@ -402,7 +408,7 @@
                     border: none;
                     padding: 16px;
                     text-transform: capitalize;
-                    border-top: 1px solid #eaeaea;
+                    // border-top: 1px solid #eaeaea;
 
                     &:before {
                         content: attr(data-label) ':';

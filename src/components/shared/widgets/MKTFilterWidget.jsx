@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactSlider from 'react-slider';
+import { loadHomeData } from '~/services/apiService';
 
 const categoryItems = [
     'Namkeen',
@@ -11,6 +12,19 @@ const categoryItems = [
 
 const MKTFilterWidget = () => {
     const [priceRange, setPriceRange] = useState([50, 1000]);
+
+    const getItems = async () => {
+        try {
+            const response = await loadHomeData();
+            console.log(response);
+        } catch (err) {
+            console.log('not found');
+        }
+    };
+
+    useEffect(() => {
+        getItems();
+    }, []);
 
     const handlePriceChange = (values) => {
         setPriceRange(values);

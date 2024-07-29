@@ -314,7 +314,7 @@
 }
 
 .ps-page--product {
-    padding-top: 30px;
+    padding-top: 80px;
     background: #fafcff;
 
     .ps-page__container {
@@ -538,17 +538,23 @@
         font-weight: 700;
         font-size: 24px;
         color: $color-heading;
-        margin-bottom: 30px;
+        margin-bottom: 25px;
+    }
+    h4 {
+        font-family: $font-4th;
     }
 
     p {
         font-family: $font-5th;
         font-weight: 400;
         font-size: 16px;
-        line-height: 20px;
+        line-height: 22.5px !important;
         color: $color-text-secondary;
         text-align: justify;
-        margin-bottom: 30px;
+        margin-bottom: 25px;
+        text-transform: capitalize;
+        -webkit-text-stroke: 0.2px $color-text-secondary;
+        line-height: 22.5px;
     }
 
     @media screen and (max-width: 767px) {

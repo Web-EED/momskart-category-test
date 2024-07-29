@@ -811,6 +811,8 @@
 
 .carousel--productImages {
     position: relative;
+    border-radius: 30px;
+    overflow: hidden;
 
     .swiper--custom-avigation {
         visibility: hidden;
@@ -842,6 +844,19 @@
             &:hover {
                 background-color: $color-1st;
                 color: #fff;
+            }
+        }
+    }
+
+    .swiper-wrapper {
+        height: 550px;
+
+        .swiper-slide {
+            display: flex;
+            align-items: center;
+
+            img {
+                width: 30vw;
             }
         }
     }

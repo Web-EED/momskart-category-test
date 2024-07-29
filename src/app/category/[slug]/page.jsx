@@ -13,6 +13,7 @@ import useProducCategory from '~/hooks/useProducCategory';
 
 export default function ProductScreen() {
     const { slug } = useParams();
+    console.log(slug);
     const [category, setCategory] = useState(null);
     const { loading, categoryDetails } = useProducCategory(slug);
 

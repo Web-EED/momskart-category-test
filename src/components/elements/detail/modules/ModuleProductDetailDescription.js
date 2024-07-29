@@ -6,18 +6,14 @@ const ModuleProductDetailDescription = ({ product }) => {
 
     const vendor = useMemo(() => {
         if (!seller_name) return 'No Vendor';
-        return seller_name
-            ? seller_name
-            : 'No Vendor';
+        return seller_name ? seller_name : 'No Vendor';
     }, [seller_name]);
 
     return (
         <div className="ps-product__desc">
             <p>
-                Sold By:
-                <Link href={'/shop'}>
-                    <strong> {vendor}</strong>
-                </Link>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard
             </p>
             <ul className="ps-list--dot">
                 <li>Unrestrained and portable active stereo speaker</li>
