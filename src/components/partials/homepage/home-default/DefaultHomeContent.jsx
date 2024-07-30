@@ -16,6 +16,8 @@ import FAQAccordion, {
     defaultFaqs,
 } from '~/components/shared/section/FAQSection';
 import MKTCustomDivider from '~/components/shared/section/MKTCustomDivider';
+import MKTHomeSaleBanner from '~/components/shared/section/MKTHomeSaleBanner';
+import MKTHomeBannerStrip from '~/components/shared/section/MKTHomeBannerStrip';
 
 export default function DefaultHomeContent() {
     const {
@@ -38,22 +40,13 @@ export default function DefaultHomeContent() {
                 banners={homedata.bannerData ? homedata.bannerData : []}
             />
             <SiteFeatures />
+            <MKTHomeBannerStrip />
+            <MKTHomeSaleBanner />
             <HomeDefaultDealOfDay
                 loading={loading}
                 products={homedata.bestSellingProduct}
             />
-            <HomeAdsColumns />
-            <HomeDefaultTopCategories />
-            {/* {homedata?.homedata?.map((category_data,i) =>  {
-                 return category_data.productList?category_data.productList ? (<HomeDefaultDealOfDay
-                    categorySlug="17"
-                    title={category_data.name}
-                    products={category_data.productList?category_data.productList:[]}
-                    loading={loading}
-                    key={i}
-                />) :(<></>)
-            })} */}
-            {homedata?.homedata?.map((category_data, i) => {
+            {/* {homedata?.homedata?.map((category_data, i) => {
                 if (category_data.productList.length > 0) {
                     return (
                         <HomeDefaultDealOfDay
@@ -66,7 +59,7 @@ export default function DefaultHomeContent() {
                     );
                 }
                 return null;
-            })}
+            })} */}
             <DownLoadApp />
             <PreFooterContent>
                 <p>

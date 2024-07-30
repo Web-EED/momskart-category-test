@@ -14,7 +14,6 @@ import 'lightgallery/scss/lightgallery.scss';
 import 'lightgallery/scss/lg-zoom.scss';
 import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import lgZoom from 'lightgallery/plugins/zoom';
-import GroupedItems from '~/components/shared/section/GroupedItems';
 
 const ThumbnailDefault = ({ product, vertical = true }) => {
     let image_arr = product?.productImages
@@ -141,7 +140,6 @@ const ThumbnailDefault = ({ product, vertical = true }) => {
                     </Swiper>
                 </div>
             </div>
-            <GroupedItems />
         </div>
     );
 };

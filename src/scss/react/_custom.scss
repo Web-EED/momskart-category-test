@@ -142,3 +142,64 @@ h2.grouped-head {
     height: 2px;
     background: #809fc7;
 }
+
+.home-banner-strip {
+    background-color: #e4f2ff;
+    padding: 25px 0;
+    border-radius: 15px;
+    box-shadow: 0px 0px 4px 0px #00000040;
+    margin-bottom: 30px;
+
+    p {
+        font-family: $font-4th;
+        font-weight: 500;
+        font-size: 16px;
+        color: $color-mk-blue;
+        text-align: center;
+        margin-bottom: 0;
+        -webkit-text-stroke: 1px $color-mk-blue;
+    }
+}
+
+.sale-image-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 80px;
+
+    img {
+        width: 530px;
+        border-radius: 15px;
+    }
+}
+
+.mkt-custom-heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    &__line {
+        flex-grow: 1;
+        height: 1px;
+        background: $color-mk-blue;
+    }
+    &__text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        white-space: nowrap;
+        margin: 0 55px;
+        padding: 15px 20px;
+        border: 1px solid $color-mk-blue;
+        border-radius: 30px;
+
+        h2 {
+            font-family: $font-4th;
+            font-size: 24px;
+            font-weight: 700;
+            color: $color-mk-pink;
+            margin-bottom: 0;
+        }
+    }
+}
