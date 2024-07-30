@@ -9,8 +9,15 @@ import DealOfDayProduct from '~/components/elements/products/DealOfDayProduct';
 import { generateTempArray } from '~/utilities/common-helpers';
 import useGetProducCollection from '~/hooks/useGetProducCollection';
 import cx from 'classnames';
+import MKTCustomHeading from '~/components/shared/section/MKTCustomHeading';
 
-const HomeDefaultDealOfDay = ({ categorySlug, fullWidth = true, products,loading,title }) => {
+const HomeDefaultDealOfDay = ({
+    categorySlug,
+    fullWidth = true,
+    products,
+    loading,
+    title,
+}) => {
     // const { loading, collectionDetail } =
     //     useGetProducCollection(collectionSlug);
 
@@ -43,26 +50,32 @@ const HomeDefaultDealOfDay = ({ categorySlug, fullWidth = true, products,loading
     }, [loading, products]);
 
     return (
-        <div className="ps-deal-of-day">
-            <div className={cx(fullWidth ? 'ps-container' : 'container')}>
-                <div className="ps-section__header">
-                    <div className="ps-block--countdown-deal">
-                        <div className="ps-block__left">
-                            <h3>{title ? title :"Deal of the day"}</h3>
+        <div>
+            <MKTCustomHeading
+                title={title ? title : 'Shop By Category'}
+                icon={'/static/img/shop-by-category-icon.svg'}
+                line={'yes'}
+            />
+            <div className="ps-deal-of-day">
+                <div className={cx(fullWidth ? 'ps-container' : 'container')}>
+                    <div className="ps-section__header">
+                        <div className="ps-block--countdown-deal">
+                            <div className="ps-block__left">
+                                {/* <h3>{title ? title : 'Deal of the day'}</h3> */}
+                            </div>
+                            {/* <div className="ps-block__right">
+                                <figure>
+                                    <figcaption>End in:</figcaption>
+                                    <CountDownSimple
+                                        timeTillDate="12 31 2024, 6:00 am"
+                                        timeFormat="MM DD YYYY, h:mm a"
+                                    />
+                                </figure>
+                            </div> */}
                         </div>
-                        {/* <div className="ps-block__right">
-                            <figure>
-                                <figcaption>End in:</figcaption>
-                                <CountDownSimple
-                                    timeTillDate="12 31 2024, 6:00 am"
-                                    timeFormat="MM DD YYYY, h:mm a"
-                                />
-                            </figure>
-                        </div> */}
                     </div>
-                   {title && <Link href={`/shop/?${categorySlug}`}>View all</Link>}
+                    <div className="ps-section__content">{productContent}</div>
                 </div>
-                <div className="ps-section__content">{productContent}</div>
             </div>
         </div>
     );

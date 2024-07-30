@@ -18,7 +18,7 @@ const SiteFeatures = () => (
                         <i className="icon-sync" />
                     </div>
                     <div className="ps-block__right">
-                        <h4>90 Days Return</h4>
+                        <h4>Homemade with Love</h4>
                         <p>If goods have problems</p>
                     </div>
                 </div>
@@ -36,7 +36,7 @@ const SiteFeatures = () => (
                         <i className="icon-bubbles" />
                     </div>
                     <div className="ps-block__right">
-                        <h4>24/7 Support</h4>
+                        <h4>Top Quality</h4>
                         <p>Dedicated support</p>
                     </div>
                 </div>
@@ -45,7 +45,7 @@ const SiteFeatures = () => (
                         <i className="icon-gift" />
                     </div>
                     <div className="ps-block__right">
-                        <h4>Gift Service</h4>
+                        <h4>Limited Stock</h4>
                         <p>Support gift service</p>
                     </div>
                 </div>

@@ -18,14 +18,11 @@ import ShopCarouselProductBox from '~/components/partials/shop/ShopCarouselProdu
 import SortByDropdown from '~/components/shared/widgets/SortByDropdown';
 import ShopItemsCarousel from '~/components/partials/shop/ShopItemsCarousel';
 import PreFooterContent from '~/components/shared/section/PreFooterContent';
-// import MKTCustomBanner from '~/components/shared/section/MKTCustomBanner';
+import MKTCustomBanner from '~/components/shared/section/MKTCustomBanner';
 import useBanner from '~/hooks/useBanner';
 
 export default function ProductScreen() {
     const { slug } = useParams();
-    // console.log(slug);
-    // console.log(slug, 'slug');
-
     const { loading, categoryDetails } = useProducCategory(slug);
     const { category, getCategoryBySuperCat } = useBanner();
     const [categoryData, setCategoryData] = useState({});
@@ -34,7 +31,6 @@ export default function ProductScreen() {
             setCategoryData(
                 category.cat_list.find((item) => item.slug === slug)
             );
-            // console.log(categoryData, 'new slug');
         }
     }, [category]);
 
@@ -69,7 +65,6 @@ export default function ProductScreen() {
     }, [loading, categoryDetails, products]);
 
     console.log(category?.cat_list?.[1]?.cat_banner, 'cat list from cat');
-    // console.log(category.cat_list[1].cat_banner, 'cat list from cat');
 
     return (
         <PageContainer
@@ -80,7 +75,7 @@ export default function ProductScreen() {
                 <div className="container">
                     <div className="banner-container">
                         <h2>Buy {categoryData?.name} Online</h2>
-                        {/* <MKTCustomBanner /> */}
+                        <MKTCustomBanner />
                         <img
                             src={`https://momskart-live-images1.s3.ap-south-1.amazonaws.com/uploads/category/${category?.cat_list?.[1]?.cat_banner}`}
                             alt="Momskart Namkeen Banner"
